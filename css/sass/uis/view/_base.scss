@@ -1,0 +1,222 @@
+// Variables -------------------------------------
+
+
+// Mixins --------------------------------------
+
+
+// Placeholders --------------------------------------
+%ui-views-view-div {
+  padding: $layout-spacing / 2 $layout-spacing;
+}
+
+// Styles --------------------------------------
+.ui-views {
+  flex: 1;
+  position: relative;
+
+  .view {
+    display: flex;
+    flex-direction: row;
+    transition: opacity 0.3s;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    overflow: hidden;
+    z-index: $z-index-view;
+
+    &.active {
+      opacity: 1;
+      z-index: $z-index-view-active;
+      
+      &.animate {
+        animation: in-up 0.2s $animation-easing;
+      }
+    }
+
+    &.modal {
+
+      .view-header {
+        width: 22em;
+        margin: auto;
+      }
+
+      .view-content {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+
+        .ui-form {
+          width: 20em;
+        }
+      }
+    }
+
+    .view-main {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+      flex-direction: column;
+      position: relative;
+
+      &.wide {
+        flex: 2;
+      }
+
+      &.hidden {
+        display: none;
+      }
+    }
+
+    .view-aside {
+      width: 24em;
+      background-color: $color-gray-lightest;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      &.hidden {
+        display: none;
+      }
+
+      &.dark {
+        background-color: $color-gray-lighterest;
+  
+        .view {
+          background-color: $color-gray-lighterest;
+        }
+      }
+
+      &.wide {
+        width: 30em;
+      }
+
+      .editor {
+
+        .ui-form {
+          width: 100%;
+          max-width: 100%;
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+        }
+
+        textarea {
+          flex: 1
+        }
+
+        .submit-note {
+          margin: 1em 0;
+        }
+      }
+
+      .view {
+        background-color: $color-gray-lightest;
+      }
+    }
+
+    .view-header {
+      @extend %ui-views-view-div;
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      white-space: nowrap;
+      padding-bottom: 0;
+
+      h1 {
+        line-height: 1em;
+        margin: 0 1em 0 0;
+
+        a {
+
+          &:after {
+            content: " /";
+            color: $color-border;
+            font-weight: 100;
+          }
+        }
+      }
+
+      h2 {
+        margin: 0 1em 0 0;
+      }
+
+      .scroll-wrapper {
+        overflow: hidden;
+        max-height: 2.5em;
+      }
+
+      .actions {
+        flex: 1;
+
+        .ui-form {
+          display: inline;
+        }
+
+        &.middle {
+          flex: 4;
+          padding: 0 1em;
+        }
+
+        &.right {
+          text-align: right;
+
+          a {
+            cursor: pointer;
+
+            .close {
+              color: $color-gray-light;
+            }
+
+            &.ui-button {
+              color: $color-link;
+            }
+          }
+        }
+
+        a {
+
+          &:not(:first-child) {
+            margin-left: 2em;
+          }
+        }
+
+        i {
+          font-weight: bold;
+        }
+      }
+    }
+
+    .view-content {
+      @extend %ui-views-view-div;
+      flex: 1;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      &.no-padding {
+        padding: 0;
+      }
+
+      &.hidden {
+        display: none;
+      }
+
+      &.scrollable {
+        overflow: auto;
+      }
+
+      &.tall {
+        flex: 2;
+      }
+
+      &.right {
+        text-align: right;
+      }
+    }
+  }
+}

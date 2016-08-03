@@ -1,0 +1,150 @@
+// Variables -------------------------------------
+
+
+// Mixins --------------------------------------
+
+
+// Placeholders --------------------------------------
+
+
+// Styles --------------------------------------
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: $font-sans-family;
+  font-weight: 300;
+  color: $color-text;
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  position: relative;
+}
+
+h1 {
+  font-size: 1.35em;
+  font-weight: 300;
+
+  i {
+    font-weight: 300;
+    font-size: .85em;
+    color: $color-gray;
+  }
+}
+
+h2 {
+  font-weight: 300;
+  font-size: 1.15em;
+  color: $color-gray-dark;
+
+  span {
+    font-size: 0.75em;
+    color: $color-text;
+  }
+}
+
+span {
+
+  &.bold {
+    font-weight: 400;
+  }
+
+  &.note,
+  &.small {
+    font-size: .8em;
+  }
+}
+
+p {
+  &:empty {
+    margin: 0;
+  }
+
+  &.center {
+    text-align: center;
+  }
+  
+  &.right {
+    text-align: right;
+  }
+
+  &.error {
+    color: $color-error;
+  }
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: $color-link;
+
+  &:visited,
+  &:active {
+    color: $color-link;
+  }
+
+  &.small {
+    font-size: .8em;
+  }
+}
+
+.score-10 {
+  color: $color-score-10;
+  font-weight: 400;
+}
+
+.score-9 {
+  color: $color-score-9;
+  font-weight: 400;
+}
+
+.score-8 {
+  color: $color-score-8;
+  font-weight: 400;
+}
+
+.score-7 {
+  color: $color-score-7;
+  font-weight: 400;
+}
+
+.score-6 {
+  color: $color-score-6;
+  font-weight: 400;
+}
+
+.score-5 {
+  color: $color-score-5;
+  font-weight: 400;
+}
+
+.score-4 {
+  color: $color-score-4;
+  font-weight: 400;
+}
+
+.score-3 {
+  color: $color-score-3;
+  font-weight: 400;
+}
+
+.score-2 {
+  color: $color-score-2;
+  font-weight: 400;
+}
+
+.score-1 {
+  color: $color-score-1;
+  font-weight: 400;
+}
+
+.score-0 {
+  color: $color-score-0;
+  font-weight: 400;
+}
+
+
+*:focus {
+  outline: 0;
+}

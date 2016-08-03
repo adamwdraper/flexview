@@ -1,0 +1,56 @@
+// Variables -------------------------------------
+
+
+// Mixins --------------------------------------
+
+
+// Placeholders --------------------------------------
+
+
+// Styles --------------------------------------
+.ui-notify {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-index-notify;
+
+  .messages {
+    position: absolute;
+    top: .25em;
+    right: 1em;
+  }
+
+  .message {
+    transition: opacity 0.3s;
+    opacity: 0;
+    padding: .5em 1em;
+    margin-bottom: .25em;
+    text-align: center;
+    background: $color-info;
+    font-size: .9em;
+    border-radius: .2em;
+    width: 26em;
+    animation: fade-in-down 0.2s linear;
+
+    &.show {
+      opacity: 1;
+      z-index: $z-index-notify;
+    }
+
+    &.success {
+      color: white;
+      background-color: $color-success;
+    }
+
+    &.error {
+      color: white;
+      background-color: $color-error;
+    }
+
+    .text {
+      display: inline-block;
+      margin: 0;
+    }
+  }
+}

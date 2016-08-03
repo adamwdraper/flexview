@@ -1,0 +1,86 @@
+// Variables -------------------------------------
+
+
+// Mixins --------------------------------------
+
+
+// Placeholders --------------------------------------
+%ui-button-small {
+    line-height: 2em;
+    padding: 0 .5em;
+    font-size: .8em;
+}
+
+%ui-button-light {
+    transition: color 0.3s;
+    background-color: rgba(white, 0.2);
+    border: 1px solid $color-gray-light;
+    color: $color-link;
+
+    &:hover {
+      color: $color-link;
+    }
+}
+
+// Styles --------------------------------------
+.ui-button {
+  display: inline-block;
+  line-height: 2.5em;
+  padding: 0 1em;
+  background-color: $color-link;
+  color: white;
+  text-align: center;
+  border-radius: $layout-border-radius;
+  border: none;
+  opacity: 1;
+  transition: color 0.3s, backgroud-color 0.3s, opacity 0.3s;
+  cursor: pointer;
+
+  &:active,
+  &:visited {
+    color: white;
+  }
+
+  &.light {
+    @extend %ui-button-light;
+  }
+
+  &.inactive {
+    color: $color-inactive;
+    cursor: not-allowed;
+    opacity: 0.5;
+
+    &:hover {
+      color: $color-inactive;
+    }
+  }
+
+  &.small {
+    @extend %ui-button-small;
+  }
+
+  &.extra-small {
+    @extend %ui-button-small;
+    font-size: .85em;
+  }
+
+  &.cancel {
+    @extend %ui-button-small;
+    background-color: transparent;
+    color: $color-inactive;
+
+    &:hover {
+      color: $color-error;
+    }
+  }
+
+  &.secondary {
+    background-color: $color-logichub-blue-light;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    background-color: $color-gray-light;
+    opacity: 0.5;
+  }
+}

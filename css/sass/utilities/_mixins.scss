@@ -1,0 +1,56 @@
+// long-hand mixins
+@mixin margin-sides ($margin) {
+  margin-left: $margin;
+  margin-right: $margin;
+}
+
+@mixin padding-sides ($padding) {
+  padding-left: $padding;
+  padding-right: $padding;
+}
+
+@mixin border ($width: $border-border-width, $style: $border-border-style, $color: $border-border-color) {
+  border-width: $width;
+  border-style: $style;
+  border-color: $color;
+}
+
+@mixin position ($top, $right, $bottom, $left) {
+  @if $top {
+    top: $top;
+  }
+  @if $right {
+    right: $right;
+  }
+  @if $bottom {
+    bottom: $bottom;
+  }
+  @if $left {
+    left: $left;
+  }
+}
+
+// Sizing shortcuts
+// -------------------------
+@mixin size($height, $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin square($size) {
+  @include size($size, $size);
+}
+
+@mixin ellipsis-overflow () {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Circles
+@mixin circle($diameter) {
+  line-height: $diameter;
+  width: $diameter;
+  text-align: center;
+  border-radius: 50%;
+}

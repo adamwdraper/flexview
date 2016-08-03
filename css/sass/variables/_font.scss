@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'app';
+    src:
+        url('/fonts/app.ttf?n4yguv') format('truetype'),
+        url('/fonts/app.woff?n4yguv') format('woff'),
+        url('/fonts/app.svg?n4yguv#www') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$font-sans-family: 'Lato', sans-serif;
+$font-serif-family: 'ff-meta-serif-web-pro', 'Times New Roman', serif;
