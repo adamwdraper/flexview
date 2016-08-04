@@ -7,7 +7,7 @@ app.set('views', __dirname);
 app.set('view engine', 'html');
 
 // Routes ---------------------------------------
-app.get('/', function (req, res) {
+app.get('/\[0-9]\?', function (req, res) {
     res.sendfile('index.html');
 });
 

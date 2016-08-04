@@ -6,7 +6,7 @@
 
 // Placeholders --------------------------------------
 %ui-views-view-div {
-  padding: $layout-spacing / 2 $layout-spacing;
+  padding: 0 $layout-spacing;
 }
 
 // Styles --------------------------------------
@@ -127,8 +127,6 @@
       padding-bottom: 0;
 
       h1 {
-        line-height: 1em;
-        margin: 0 1em 0 0;
 
         a {
 
@@ -139,83 +137,16 @@
           }
         }
       }
-
-      h2 {
-        margin: 0 1em 0 0;
-      }
-
-      .scroll-wrapper {
-        overflow: hidden;
-        max-height: 2.5em;
-      }
-
-      .actions {
-        flex: 1;
-
-        .ui-form {
-          display: inline;
-        }
-
-        &.middle {
-          flex: 4;
-          padding: 0 1em;
-        }
-
-        &.right {
-          text-align: right;
-
-          a {
-            cursor: pointer;
-
-            .close {
-              color: $color-gray-light;
-            }
-
-            &.ui-button {
-              color: $color-link;
-            }
-          }
-        }
-
-        a {
-
-          &:not(:first-child) {
-            margin-left: 2em;
-          }
-        }
-
-        i {
-          font-weight: bold;
-        }
-      }
     }
 
     .view-content {
       @extend %ui-views-view-div;
       flex: 1;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
+      overflow: auto;
       position: relative;
-
-      &.no-padding {
-        padding: 0;
-      }
 
       &.hidden {
         display: none;
-      }
-
-      &.scrollable {
-        overflow: auto;
-      }
-
-      &.tall {
-        flex: 2;
-      }
-
-      &.right {
-        text-align: right;
       }
     }
   }
