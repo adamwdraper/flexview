@@ -5,6 +5,7 @@ const sass = require('gulp-sass');
 const sourceMaps = require('gulp-sourcemaps');
 const autoPrefixer = require('gulp-autoprefixer');
 const del = require('del');
+const nodemon = require('gulp-nodemon');
 
 
 // Empty dist directory
@@ -29,12 +30,28 @@ gulp.task('sass', function() {
 gulp.task('sass:watch', [
   'sass'
   ], function() {
-  gulp.watch('./css/sass/**/*.scss', [
-    'sass'
-  ]);
+    gulp.watch('./css/sass/**/*.scss', [
+      'sass'
+    ]);
 });
+
+// Start Server
+gulp.task('server', function() {
+  nodemon({
+    script: 'server.js',
+    watch: [
+      'server.js'
+    ]
+  });
+});
+
 
 // Task groups
 gulp.task('default', [
+  'sass',
+  'server'
+]);
+
+gulp.task('watch', [
   'sass:watch'
 ]);

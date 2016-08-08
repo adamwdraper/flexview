@@ -93,29 +93,6 @@
       &.wide {
         width: 30em;
       }
-
-      .editor {
-
-        .ui-form {
-          width: 100%;
-          max-width: 100%;
-          display: flex;
-          flex-direction: column;
-          height: 100%;
-        }
-
-        textarea {
-          flex: 1
-        }
-
-        .submit-note {
-          margin: 1em 0;
-        }
-      }
-
-      .view {
-        background-color: $color-gray-lightest;
-      }
     }
 
     .view-header {
