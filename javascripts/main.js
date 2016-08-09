@@ -77,7 +77,8 @@ $(function() {
     routes: {
       1: '1',
       2: '2',
-      3: '3'
+      3: '3',
+      4: '4'
     },
     navigate: function(route) {
       const view = this.routes[route] || '1';
