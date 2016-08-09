@@ -13,63 +13,67 @@ $.fn.extend({
 
 
 $.fn.drags = function(options) {
-  const direction = this.data('handle');
-  const dragHandle = function(e) {
+  return this.each(function(options) {
     const $el = $(this);
-    const zIndex = $el.css('z-index');
-    const height = $el.outerHeight();
-    const width = $el.outerWidth();
-    const y = $el.offset().top + height - e.pageY;
-    const x = $el.offset().left + width - e.pageX;
+    const direction = $el.data('handle');
+    const drag = function(e) {
+      const zIndex = $el.css('z-index');
+      const height = $el.outerHeight();
+      const width = $el.outerWidth();
+      const y = $el.offset().top + height - e.pageY;
+      const x = $el.offset().left + width - e.pageX;
+      const resize = function(e) {
+        const prev = $el.prev();
+        const next = $el.next();
+        const total = direction === 'horizontal' ? prev.outerWidth() + next.outerWidth() : prev.outerHeight() + next.outerHeight();
+        let prevPercentage;
+        let nextPercentage;
 
-    $el.addClass('dragging');
-    
-    priorCursor = $('body').css('cursor');
+        if (direction === 'horizontal') {
+          prevPercentage = (((e.pageX - prev.offset().left) + (x - width / 2)) / total);
+        } else {
+          prevPercentage = (((e.pageY - prev.offset().top) + (y - height / 2)) / total);
+        }
+        
+        nextPercentage = 1 - prevPercentage; 
+        
+        if (prevPercentage * 100 < options.min || nextPercentage * 100 < options.min) {
+          return; 
+        }
+        
+        console.log('p: ' + prevPercentage + ', n:' + nextPercentage);
+        
+        prev.css('flex', prevPercentage.toString());
+        next.css('flex', nextPercentage.toString());
+      };
+      const drop = function() {
+        $('body').css('cursor', priorCursor);
+        $el.removeClass('dragging').css('z-index', zIndex);
 
-    $('body').css('cursor', options.cursor);
+        $el.parents().off('mousemove');
+      };
 
-    $el.css('z-index', 1000).parents().on('mousemove', function(e) {
-      const prev = $el.prev();
-      const next = $el.next(); 
-      const total = prev.outerWidth() + next.outerWidth();
+      $el.addClass('dragging').css('z-index', 1000).parents().on('mousemove', resize);
       
-      // Assume 50/50 split between prev and next then adjust to
-      // the next X for prev
-                    
-      console.log('l: ' +  prev.outerWidth() + ', r:' + next.outerWidth());
-      
-      var leftPercentage = (((e.pageX - prev.offset().left) + (x - width / 2)) / total); 
-      var rightPercentage = 1 - leftPercentage; 
-      
-      if(leftPercentage * 100 < options.min || rightPercentage * 100 < options.min) {
-        return; 
-      }
-      
-      console.log('l: ' + leftPercentage + ', r:' + rightPercentage);
-      
-      prev.css('flex', leftPercentage.toString());
-      next.css('flex', rightPercentage.toString());
-    });
+      priorCursor = $('body').css('cursor');
 
-    $(document).on('mouseup', function() {
-      console.log('dropped');
+      $('body').css('cursor', options.cursor);
 
-      $('body').css('cursor', priorCursor);
-      $el.removeClass('dragging').css('z-index', zIndex);
+      $(document).on('mouseup', drop);
 
-      $el.parents().off('mousemove');
-    });
+      e.preventDefault();
+    };
+    let priorCursor;
 
-    e.preventDefault();
-  };
-  let priorCursor;
+    options = $.extend({
+      cursor: direction === 'horizontal' ? 'ew-resize' : 'ns-resize',
+      min: 10
+    }, options);
 
-  options = $.extend({
-    cursor: direction === 'horizontal' ? 'ew-resize' : 'ns-resize',
-    min: 10
-  }, options);
+    console.log(direction, direction === 'horizontal', options.cursor);
 
-  return this.css('cursor', options.cursor).on('mousedown', dragHandle);
+    return $el.css('cursor', options.cursor).on('mousedown', drag);
+  });
 };
 
 
