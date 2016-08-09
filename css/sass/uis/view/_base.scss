@@ -129,13 +129,50 @@
 
     .view-handle {
       background-color: gray;
+      position: relative;
 
       &.vertical {
-        height: 3px;
+        height: 1px;
+
+        &:after,
+        &:before {
+          content: "";
+          position: absolute;
+          left: 0;
+          width: 100%;
+          z-index: $z-index-handle;
+          height: .3em;
+        }
+
+        &:after {
+          top: 100%;
+        }
+
+        &:before {
+          top: -.3em
+        }
       }
 
       &.horizontal {
-        width: 3px;
+        width: 1px;
+
+        &:after,
+        &:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          height: 100%;
+          z-index: $z-index-handle;
+          width: .5em;
+        }
+
+        &:after {
+          left: 100%;
+        }
+
+        &:before {
+          left: -.5em
+        }
       }
 
       &.dragging {
