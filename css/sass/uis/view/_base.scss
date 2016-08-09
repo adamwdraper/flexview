@@ -126,5 +126,21 @@
         display: none;
       }
     }
+
+    .view-handle {
+      background-color: gray;
+
+      &.vertical {
+        height: 3px;
+      }
+
+      &.horizontal {
+        width: 3px;
+      }
+
+      &.dragging {
+        background-color: pink;
+      }
+    }
   }
 }
