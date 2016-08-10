@@ -1,0 +1,18 @@
+// Variables -------------------------------------
+$ui-loader-duration: 1.35s;
+
+// Mixins --------------------------------------
+
+
+// Placeholders --------------------------------------
+
+
+// Styles --------------------------------------
+.ui-loader {
+
+  .figure {
+    border: 0 solid $color-logichub-green;
+    border-radius: 100%;
+    animation: loader $ui-loader-duration $ease-out-cubic infinite;
+  }
+}

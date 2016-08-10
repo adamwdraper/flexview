@@ -55,6 +55,13 @@
       }
     }
 
+    &.has-status {
+
+      .view-status {
+        display: flex;
+      }
+    }
+
     .view-main {
       flex: 1;
       display: flex;
@@ -178,6 +185,19 @@
       &.dragging {
         background-color: pink;
       }
+    }
+
+    .view-status {
+      display: none;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      background: white;
+      align-items: center;
+      justify-content: center;
     }
   }
 }
