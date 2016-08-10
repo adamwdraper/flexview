@@ -64,8 +64,6 @@ $.fn.extend({
         min: 20
       }, options);
 
-      console.log(direction, direction === 'horizontal', options.cursor);
-
       return $el.css('cursor', options.cursor).on('mousedown', drag);
     });
   }
@@ -75,22 +73,41 @@ $.fn.extend({
 $(function() {
   const router = {
     routes: {
-      1: '1',
-      2: '2',
-      3: '3',
-      4: '4'
+      '1': {
+        view: '1',
+        render: function($el) {
+          $el.addClass('has-status');
+
+          setTimeout(function() {
+            $el.removeClass('has-status');
+          }, 2000);
+        }
+      },
+      '2': {
+        view: '2'
+      },
+      '3': {
+        view: '3'
+      },
+      '4': {
+        view: '4'
+      }
     },
     navigate: function(route) {
-      const view = this.routes[route] || '1';
+      const view = this.routes[route] || this.routes['1'];
 
       history.pushState({
-        view: view
-      }, `View ${view}`, `${view}`);
+        view: view.view
+      }, `View ${view.view}`, `${view.view}`);
 
-      this.activate(route);
+      this.activate(view);
     },
     activate: function(view) {
-      $(`[data-view='${view}']`).activate();
+      const $el = $(`[data-view='${view.view}']`).activate();
+
+      if (view.render) {
+        view.render($el);
+      }
     }
   };
 

@@ -11,17 +11,18 @@ $color-gray-lightest: #F6F9FA;
 $color-white: #FFFFFF;
 
 // fountain colors
-$color-logichub-blue: #167FBC;
-$color-logichub-blue-light: #1BC3F3;
-$color-logichub-blue-lightest: lighten($color-logichub-blue-light, 42%);
-$color-logichub-green: #50C574;
-$color-logichub-green-light: lighten($color-logichub-green, 35%);
-$color-logichub-yellow: #F3E61A;
-$color-logichub-yellow-light: lighten($color-logichub-yellow, 15%);
-$color-logichub-orange: #E8AA14;
-$color-logichub-red: #DB3B23;
-$color-logichub-red-light: lighten($color-logichub-red, 35%);
-$color-logichub-purple: #744FC6;
+$color-blue: #167FBC;
+$color-blue-light: #1BC3F3;
+$color-blue-lightest: lighten($color-blue-light, 42%);
+$color-green: #50C574;
+$color-green-light: lighten($color-green, 35%);
+$color-yellow: #F3E61A;
+$color-yellow-light: lighten($color-yellow, 15%);
+$color-orange: #E8AA14;
+$color-red: #DB3B23;
+$color-red-light: lighten($color-red, 35%);
+$color-purple: #744FC6;
+$color-pink: #FF2E6C;
 
 // Social colors
 $color-facebook: #3b5998;
@@ -34,40 +35,15 @@ $color-tumblr: #32506d;
 $color-youtube: #e52d27;
 
 // Feedback Colors ---------------------
-$color-success: $color-logichub-green;
-$color-warning: $color-logichub-orange;
-$color-info: $color-logichub-yellow-light;
-$color-error: $color-logichub-red;
+$color-success: $color-green;
+$color-warning: $color-orange;
+$color-info: $color-yellow-light;
+$color-error: $color-red;
 
 // Base Colors ---------------------
 $color-text: $color-gray-darker;
-$color-link: $color-logichub-blue;
+$color-link: $color-blue;
 $color-inactive: $color-gray-light;
-$color-active: $color-logichub-green;
+$color-active: $color-green;
 $color-border: $color-gray-lighter;
-$color-hover: $color-logichub-blue-lightest;
-
-// State Colors ---------------------
-$color-unset: $color-gray-dark;
-$color-tbd: $color-logichub-orange;
-$color-normal: $color-logichub-green;
-$color-flagged: $color-logichub-red;
-$color-unprocessed: $color-logichub-blue;
-
-// Flow Type Colors ---------------------
-$color-augmentation: $color-logichub-blue-light;
-$color-sessionization: $color-gray;
-$color-scorer: $color-logichub-purple;
-
-// Score Colors ---------------------
-$color-score-10: mix($color-logichub-red, $color-logichub-orange, 100%);
-$color-score-9: mix($color-logichub-red, $color-logichub-orange, 100%);
-$color-score-8: mix($color-logichub-red, $color-logichub-orange, 65%);
-$color-score-7: mix($color-logichub-red, $color-logichub-orange, 35%);
-$color-score-6: mix($color-logichub-orange, $color-logichub-yellow, 0%);
-$color-score-5: mix($color-logichub-orange, $color-logichub-yellow, 65%);
-$color-score-4: mix($color-logichub-orange, $color-logichub-yellow, 35%);
-$color-score-3: mix($color-logichub-yellow, $color-logichub-green, 65%);
-$color-score-2: mix($color-logichub-yellow, $color-logichub-green, 35%);
-$color-score-1: mix($color-logichub-yellow, $color-logichub-green, 10%);
-$color-score-0: mix($color-logichub-yellow, $color-logichub-green, 0%);
+$color-hover: $color-blue-lightest;

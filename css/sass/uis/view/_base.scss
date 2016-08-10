@@ -37,24 +37,6 @@
       }
     }
 
-    &.modal {
-
-      .view-header {
-        width: 22em;
-        margin: auto;
-      }
-
-      .view-content {
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
-
-        .ui-form {
-          width: 20em;
-        }
-      }
-    }
-
     &.has-status {
 
       .view-status {
@@ -71,6 +53,11 @@
 
       &.wide {
         flex: 2;
+      }
+
+      &.narrow {
+        width: 25em;
+        margin: auto;
       }
 
       &.hidden {
@@ -91,10 +78,6 @@
 
       &.dark {
         background-color: $color-gray-lighterest;
-  
-        .view {
-          background-color: $color-gray-lighterest;
-        }
       }
 
       &.wide {
@@ -109,18 +92,6 @@
       flex-shrink: 0;
       white-space: nowrap;
       padding-bottom: 0;
-
-      h1 {
-
-        a {
-
-          &:after {
-            content: " /";
-            color: $color-border;
-            font-weight: 100;
-          }
-        }
-      }
     }
 
     .view-content {
@@ -135,7 +106,7 @@
     }
 
     .view-handle {
-      background-color: gray;
+      background-color: $color-gray;
       position: relative;
 
       &.vertical {
@@ -183,7 +154,7 @@
       }
 
       &.dragging {
-        background-color: pink;
+        background-color: $color-pink;
       }
     }
 

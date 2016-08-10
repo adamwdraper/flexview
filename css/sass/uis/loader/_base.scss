@@ -11,7 +11,7 @@ $ui-loader-duration: 1.35s;
 .ui-loader {
 
   .figure {
-    border: 0 solid $color-logichub-green;
+    border: 0 solid $color-green;
     border-radius: 100%;
     animation: loader $ui-loader-duration $ease-out-cubic infinite;
   }
