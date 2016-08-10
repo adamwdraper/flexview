@@ -117,5 +117,13 @@ $(function() {
     router.navigate($(event.currentTarget).data('route'));
   });
 
+  $('[data-minimize]').on('click', function(event) {
+    $(event.currentTarget).parent().parent().parent().addClass('minimized');
+  });
+
+  $('[data-maximize]').on('click', function(event) {
+    $(event.currentTarget).parent().parent().parent().removeClass('minimized');
+  });
+
   router.navigate(window.location.pathname.substr(1));
 });

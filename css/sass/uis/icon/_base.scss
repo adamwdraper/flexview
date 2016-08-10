@@ -1,0 +1,50 @@
+// Variables -------------------------------------
+
+
+// Mixins --------------------------------------
+
+
+// Placeholders --------------------------------------
+
+
+// Styles --------------------------------------
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'flexview' !important;
+  display: inline-block;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  // my extra styles
+  transition: color 0.3s, opacity 0.3s;
+
+  // states
+  &.inactive {
+    color: $color-inactive;
+  }
+  &.active {
+    color: $color-active;
+  }
+  &.success {
+    color: $color-success;
+  }
+
+  // icons
+  &.cross2:before {
+    content: "\e935";
+  }
+  &.plus:before {
+    content: "\e936";
+  }
+  &.minus:before {
+    content: "\e937";
+  }
+}

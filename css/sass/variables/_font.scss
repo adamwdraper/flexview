@@ -1,11 +1,12 @@
 @font-face {
-    font-family: 'app';
-    src:
-        url('/fonts/app.ttf?n4yguv') format('truetype'),
-        url('/fonts/app.woff?n4yguv') format('woff'),
-        url('/fonts/app.svg?n4yguv#www') format('svg');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'flexview';
+  src:
+    url('/fonts/flexview.woff2?9n7e92') format('woff2'),
+    url('/fonts/flexview.ttf?9n7e92') format('truetype'),
+    url('/fonts/flexview.woff?9n7e92') format('woff'),
+    url('/fonts/flexview.svg?9n7e92#flexview') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
 $font-sans-family: 'Lato', sans-serif;
