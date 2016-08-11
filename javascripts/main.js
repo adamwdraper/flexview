@@ -8,6 +8,34 @@ $.fn.extend({
       $this.addClass(classes);
     });
   },
+  minimize: function() {
+    return this.each(function() {
+      const $this = $(this);
+      const $siblings = $this.siblings().not('[data-handle]');
+
+      $this.addClass('minimized').css({
+        flex: 'none'
+      });
+
+      $siblings.each(function() {
+        const $this = $(this);
+
+        if ($this.hasClass('.minimized') || $this.css('flex')) {
+          $this.maximize();
+        }
+      });
+    });
+  },
+  maximize: function() {
+    return this.each(function() {
+      const $this = $(this);
+
+      $this.removeClass('minimized').css({
+        flex: '',
+        width: ''
+      });
+    });
+  },
   drags: function(options) {
     return this.each(function(options) {
       const $el = $(this);
@@ -88,9 +116,6 @@ $(function() {
       },
       '3': {
         view: '3'
-      },
-      '4': {
-        view: '4'
       }
     },
     navigate: function(route) {
@@ -118,11 +143,11 @@ $(function() {
   });
 
   $('[data-minimize]').on('click', function(event) {
-    $(event.currentTarget).parent().parent().parent().addClass('minimized');
+    $(event.currentTarget).parent().parent().parent().minimize();
   });
 
   $('[data-maximize]').on('click', function(event) {
-    $(event.currentTarget).parent().parent().parent().removeClass('minimized');
+    $(event.currentTarget).parent().parent().parent().maximize();
   });
 
   router.navigate(window.location.pathname.substr(1));

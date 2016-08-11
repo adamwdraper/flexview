@@ -9,6 +9,45 @@
   padding: 0 $layout-spacing;
 }
 
+%ui-views-minimized {
+
+  &.minimized {
+    width: 2em;
+
+    .view-bar {
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+      padding: 0;
+
+      h4 {
+        display: block;
+        order: 2;
+        margin-top: 1em;
+        writing-mode: vertical-rl;
+      }
+
+      .actions {
+        order: 1;
+        flex: 0;
+      }
+
+      .minus {
+        display: none;
+      }
+
+      .plus {
+        display: inline-block;
+      }
+    }
+
+    .view-header,
+    .view-content {
+      display: none;
+    }
+  }
+}
+
 // Styles --------------------------------------
 .ui-views {
   position: relative;
@@ -45,7 +84,8 @@
     }
 
     .view-main {
-      flex: 1;
+      @extend %ui-views-minimized;
+      flex: 2.5;
       display: flex;
       overflow: hidden;
       flex-direction: column;
@@ -66,7 +106,8 @@
     }
 
     .view-aside {
-      width: 24em;
+      @extend %ui-views-minimized;
+      flex: 1;
       background-color: $color-gray-lightest;
       display: flex;
       flex-direction: column;
@@ -74,47 +115,6 @@
 
       &.hidden {
         display: none;
-      }
-
-      &.dark {
-        background-color: $color-gray-lighterest;
-      }
-
-      &.wide {
-        width: 30em;
-      }
-
-      &.minimized {
-        width: 2em;
-
-        .view-bar {
-          flex-direction: column;
-          align-items: center;
-
-          h4 {
-            display: block;
-            transform: rotate(90deg);
-            order: 2;
-            margin-top: 1em;
-          }
-
-          .actions {
-            order: 1;
-          }
-
-          .minus {
-            display: none;
-          }
-
-          .plus {
-            display: inline-block;
-          }
-        }
-
-        .view-header,
-        .view-content {
-          display: none;
-        }
       }
     }
 
@@ -127,7 +127,7 @@
 
       h4 {
         margin: 0;
-        font-weight: 100;
+        font-weight: 300;
         flex: 1;
         display: none;
       }
@@ -158,7 +158,6 @@
       align-items: center;
       flex-shrink: 0;
       white-space: nowrap;
-      padding-bottom: 0;
     }
 
     .view-content {
