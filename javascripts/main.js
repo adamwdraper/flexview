@@ -14,7 +14,7 @@ $.fn.extend({
       const $siblings = $this.siblings().not('[data-handle]');
 
       $this.addClass('minimized').css({
-        flex: 'none'
+        flex: ''
       });
 
       $siblings.each(function() {
@@ -39,6 +39,7 @@ $.fn.extend({
   drags: function(options) {
     return this.each(function(options) {
       const $el = $(this);
+      const $body = $('body');
       const direction = $el.data('handle');
       const drag = function(e) {
         const zIndex = $el.css('z-index');
@@ -70,6 +71,7 @@ $.fn.extend({
         };
         const drop = function() {
           $('body').css('cursor', priorCursor);
+          
           $el.removeClass('dragging').css('z-index', zIndex);
 
           $el.parents().off('mousemove');
@@ -77,9 +79,9 @@ $.fn.extend({
 
         $el.addClass('dragging').css('z-index', 1000).parents().on('mousemove', resize);
         
-        priorCursor = $('body').css('cursor');
+        priorCursor = $body.css('cursor');
 
-        $('body').css('cursor', options.cursor);
+        $body.css('cursor', options.cursor);
 
         $(document).on('mouseup', drop);
 

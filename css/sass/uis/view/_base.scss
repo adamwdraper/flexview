@@ -13,23 +13,28 @@
 
   &.minimized {
     width: 2em;
+    flex: none;
 
-    .view-bar {
+    .view-header {
       flex-direction: column;
       align-items: center;
       flex: 1;
-      padding: 0;
 
-      h4 {
+      h1 {
+        font-size: .8em;
         display: block;
         order: 2;
-        margin-top: 1em;
         writing-mode: vertical-rl;
       }
 
       .actions {
+        display: none;
+      }
+
+      .controls {
         order: 1;
-        flex: 0;
+        flex: none;
+        line-height: 3.75em;
       }
 
       .minus {
@@ -41,7 +46,6 @@
       }
     }
 
-    .view-header,
     .view-content {
       display: none;
     }
@@ -118,21 +122,16 @@
       }
     }
 
-    .view-bar {
+    .view-header {
       @extend %ui-views-view-div;
-      font-size: .8em;
-      line-height: 1.75em;
       display: flex;
-      color: $color-gray-dark;
-
-      h4 {
-        margin: 0;
-        font-weight: 300;
-        flex: 1;
-        display: none;
-      }
-
-      .actions {
+      align-items: center;
+      flex-shrink: 0;
+      white-space: nowrap;
+      
+      .controls {
+        color: $color-gray-dark;
+        font-size: .8em;
         flex: 1;
         text-align: right;
 
@@ -150,14 +149,6 @@
           display: none;
         }
       }
-    }
-
-    .view-header {
-      @extend %ui-views-view-div;
-      display: flex;
-      align-items: center;
-      flex-shrink: 0;
-      white-space: nowrap;
     }
 
     .view-content {
