@@ -9,7 +9,7 @@
 
 // Styles --------------------------------------
 .ui-menu {
-  flex-shrink: 0;
+  flex: 0 0;
   background-color: $color-gray-darker;
   padding: 0 $layout-spacing;
   z-index: $z-index-menu;
