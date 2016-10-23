@@ -17,18 +17,19 @@ gulp.task('clean', function() {
 
 // Compile sass
 gulp.task('sass', function() {
-  return gulp.src('./css/sass/stylesheets/*.scss')
+  return gulp.src('./docs/css/sass/stylesheets/*.scss')
     .pipe(sass()
       .on('error', sass.logError))
     .pipe(autoPrefixer())
-    .pipe(gulp.dest('./css'));
+    .pipe(gulp.dest('./docs/css'))
+    .pipe(gulp.dest('./'));
 });
 
 // Watch for compiling sass
 gulp.task('sass:watch', [
   'sass'
   ], function() {
-    gulp.watch('./css/sass/**/*.scss', [
+    gulp.watch('./docs/css/sass/**/*.scss', [
       'sass'
     ]);
 });

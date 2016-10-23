@@ -6,7 +6,7 @@ After building several large single page apps, I wanted to share the layout conc
 
 As this uses Flexbox the browser support can be found at [caniuse.com](http://caniuse.com/#search=flex).
 
-View `index.html` for a full example of the HTML.  The styles are written in SCSS in `css/sass/uis`.
+View `docs/index.html` for a full example of the HTML.  The styles are written in SCSS in `docs/css/sass/uis`.  If you just want the CSS `flexview.css` is what you're looking for.
 
 ## Layout Overview
 
