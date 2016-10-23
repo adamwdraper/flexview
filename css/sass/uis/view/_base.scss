@@ -6,51 +6,17 @@
 
 // Placeholders --------------------------------------
 %ui-views-view-div {
-  padding: 0 $layout-spacing;
-}
+  margin: $layout-spacing/2 $layout-spacing;
 
-%ui-views-minimized {
+  &:first-child {
+    margin-top: $layout-spacing;
+  }
 
-  &.minimized {
-    width: 2em;
-    flex: none;
-
-    .view-header {
-      flex-direction: column;
-      align-items: center;
-      flex: 1;
-
-      h1 {
-        font-size: .8em;
-        display: block;
-        order: 2;
-        writing-mode: vertical-rl;
-      }
-
-      .actions {
-        display: none;
-      }
-
-      .controls {
-        order: 1;
-        flex: none;
-        line-height: 3.75em;
-      }
-
-      .minus {
-        display: none;
-      }
-
-      .plus {
-        display: inline-block;
-      }
-    }
-
-    .view-content {
-      display: none;
-    }
+  &:last-child {
+    margin-bottom: $layout-spacing;
   }
 }
+
 
 // Styles --------------------------------------
 .ui-views {
@@ -74,7 +40,7 @@
     &.active {
       opacity: 1;
       z-index: $z-index-view-active;
-      
+
       &.animate {
         animation: in-up 0.2s $animation-easing;
       }
@@ -88,7 +54,6 @@
     }
 
     .view-main {
-      @extend %ui-views-minimized;
       flex: 2.5;
       display: flex;
       overflow: hidden;
@@ -99,18 +64,12 @@
         flex: 2;
       }
 
-      &.narrow {
-        width: 25em;
-        margin: auto;
-      }
-
       &.hidden {
         display: none;
       }
     }
 
     .view-aside {
-      @extend %ui-views-minimized;
       flex: 1;
       background-color: $color-gray-lightest;
       display: flex;
@@ -128,26 +87,9 @@
       align-items: center;
       flex-shrink: 0;
       white-space: nowrap;
-      
-      .controls {
-        color: $color-gray-dark;
-        font-size: .8em;
-        flex: 1;
-        text-align: right;
 
-        i {
-          transition: opacity 0.3s;
-          opacity: .7;
-          cursor: pointer;
-
-          &:hover {
-            opacity: 1;
-          }
-        }
-
-        .plus {
-          display: none;
-        }
+      h1 {
+        margin: 0;
       }
     }
 
@@ -164,58 +106,22 @@
       & > p:first-child {
         margin-top: 0;
       }
+
+      & > p:last-child {
+        margin-bottom: 0;
+      }
     }
 
-    .view-handle {
-      background-color: $color-gray;
-      position: relative;
+    .view-footer {
+      padding: $layout-spacing/2 $layout-spacing;
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      white-space: nowrap;
+      border-top: 1px solid $color-border;
 
-      &.vertical {
-        height: 1px;
-
-        &:after,
-        &:before {
-          content: "";
-          position: absolute;
-          left: 0;
-          width: 100%;
-          z-index: $z-index-handle;
-          height: .3em;
-        }
-
-        &:after {
-          top: 100%;
-        }
-
-        &:before {
-          top: -.3em
-        }
-      }
-
-      &.horizontal {
-        width: 1px;
-
-        &:after,
-        &:before {
-          content: "";
-          position: absolute;
-          top: 0;
-          height: 100%;
-          z-index: $z-index-handle;
-          width: .5em;
-        }
-
-        &:after {
-          left: 100%;
-        }
-
-        &:before {
-          left: -.5em
-        }
-      }
-
-      &.dragging {
-        background-color: $color-pink;
+      h1 {
+        margin: 0;
       }
     }
 
