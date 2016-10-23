@@ -18,9 +18,7 @@ gulp.task('clean', function() {
 // Compile sass
 gulp.task('sass', function() {
   return gulp.src('./css/sass/stylesheets/*.scss')
-    .pipe(sass({
-        outputStyle: 'compressed'
-      })
+    .pipe(sass()
       .on('error', sass.logError))
     .pipe(autoPrefixer())
     .pipe(gulp.dest('./css'));
