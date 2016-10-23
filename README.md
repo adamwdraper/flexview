@@ -4,6 +4,8 @@ An HTML/CSS layout strategy for single page apps using Flexbox.
 
 After building several large single page apps, I wanted to share the layout concepts that have worked very well for me.
 
+As this uses Flexbox the browser support can be found at [caniuse.com](http://caniuse.com/#search=flex).
+
 View `index.html` for a full example of the HTML.  The styles are written in SCSS in `css/sass/uis`.
 
 ## Layout Overview
@@ -57,7 +59,7 @@ transition: opacity 0.3s;
 opacity: 0;
 ```
 
-It has two types of children and can contain any number of them that it will display side by side:
+It has two types of children for content and can contain any number of them that it will display side by side:
 
 ```
 <div class="view">
@@ -90,8 +92,34 @@ flex-direction: column;
   <div class="view-footer">
     ...
   </div>
-  <div class="view-status">
+</div>
+```
+
+`.view-header` and `.view-footer` share the same flex styles and sit at the top and bottom respectively:
+
+```
+display: flex;
+flex-shrink: 0;
+align-items: center;
+```
+
+`.view-content` expands to the size of the view and scrolls, so this is where the main information goes:
+
+```
+flex: 1;
+overflow: auto;
+```
+
+A `.view` also has a special type of child for loaders and other information.  `.view-status` is hidden by default, but covers the entire view when the `.view` has a class of `.has-status`
+
+
+```
+<div class="view">
+  <div class="view-main">
     ...
+  </div>
+  <div class="view-status">
+    Loading...
   </div>
 </div>
 ```
