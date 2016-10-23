@@ -113,11 +113,12 @@
     }
 
     .view-footer {
-      margin: $layout-spacing/2 $layout-spacing;
+      padding: $layout-spacing/2 $layout-spacing;
       display: flex;
       align-items: center;
       flex-shrink: 0;
       white-space: nowrap;
+      border-top: 1px solid $color-border;
 
       h1 {
         margin: 0;
