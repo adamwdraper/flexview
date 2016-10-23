@@ -56,8 +56,8 @@
     .view-main {
       flex: 2.5;
       display: flex;
-      overflow: hidden;
       flex-direction: column;
+      overflow: hidden;
       position: relative;
 
       &.wide {
@@ -71,10 +71,10 @@
 
     .view-aside {
       flex: 1;
-      background-color: $color-gray-lightest;
       display: flex;
       flex-direction: column;
       position: relative;
+      background-color: $color-gray-lightest;
 
       &.hidden {
         display: none;
@@ -84,8 +84,8 @@
     .view-header {
       @extend %ui-views-view-div;
       display: flex;
-      align-items: center;
       flex-shrink: 0;
+      align-items: center;
       white-space: nowrap;
 
       h1 {
