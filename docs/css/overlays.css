@@ -77,13 +77,50 @@
   display: -ms-flexbox;
   display: flex; }
 
-.ui-app {
+.ui-toggle {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  height: 100vh;
-  width: 100%; }
+  margin: .5em 0; }
+  .ui-toggle .toggle {
+    display: none; }
+    .ui-toggle .toggle:checked + .toggle-button {
+      background: #50C574; }
+      .ui-toggle .toggle:checked + .toggle-button:after {
+        left: 50%; }
+    .ui-toggle .toggle + .toggle-button {
+      outline: 0;
+      display: inline-block;
+      margin-bottom: 0;
+      width: 2em;
+      height: 1.1em;
+      position: relative;
+      cursor: pointer;
+      -webkit-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+      background: #DCDFE0;
+      border-radius: 1em;
+      padding: 1px;
+      -webkit-transition: all 0.4s ease;
+      transition: all 0.4s ease;
+      border: 1px solid #DCDFE0;
+      vertical-align: middle; }
+      .ui-toggle .toggle + .toggle-button:after, .ui-toggle .toggle + .toggle-button:before {
+        position: relative;
+        display: block;
+        content: "";
+        width: 50%;
+        height: 100%; }
+      .ui-toggle .toggle + .toggle-button:after {
+        border-radius: 50%;
+        background: #fff;
+        -webkit-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+        left: 0; }
+      .ui-toggle .toggle + .toggle-button:before {
+        display: none; }
+  .ui-toggle span {
+    margin-left: .5em;
+    color: white; }

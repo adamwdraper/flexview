@@ -9,13 +9,15 @@
 
 // Styles --------------------------------------
 .ui-menu {
-  flex: 0 0;
+  display: flex;
+  flex-shrink: 0;
   background-color: $color-gray-darker;
   padding: 0 $layout-spacing;
   z-index: $z-index-menu;
 
   nav {
     display: flex;
+    flex: 1;
 
     ul {
       display: flex;

@@ -1,0 +1,71 @@
+// Variables -------------------------------------
+
+
+// Mixins --------------------------------------
+
+
+// Placeholders --------------------------------------
+
+
+// Styles --------------------------------------
+.ui-toggle {
+  display: flex;
+  margin: .5em 0;
+
+  .toggle {
+    display: none;
+
+    &:checked {
+
+      + .toggle-button {
+        background: $color-success;
+
+        &:after {
+          left: 50%;
+        }
+      }
+    }
+
+    + .toggle-button {
+      outline: 0;
+      display: inline-block;
+      margin-bottom: 0;
+      width: 2em;
+      height: 1.1em;
+      position: relative;
+      cursor: pointer;
+      user-select: none;
+      background: $color-gray-lighter;
+      border-radius: 1em;
+      padding: 1px;
+      transition: all 0.4s ease;
+      border: 1px solid $color-border;
+      vertical-align: middle;
+
+      &:after,
+      &:before {
+        position: relative;
+        display: block;
+        content: "";
+        width: 50%;
+        height: 100%;
+      }
+
+      &:after {
+        border-radius: 50%;
+        background: #fff;
+        transition: all 0.2s ease;
+        left: 0;
+      }
+
+      &:before {
+        display: none;
+      }
+    }
+  }
+
+  span {
+    margin-left: .5em;
+    color: white;
+  }
+}

@@ -545,16 +545,21 @@ a {
           animation: loader 1.35s cubic-bezier(0.215, 0.61, 0.355, 1) infinite; }
 
 .ui-menu {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0;
-          flex: 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   background-color: #3E4142;
   padding: 0 1em;
   z-index: 8; }
   .ui-menu nav {
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex; }
+    display: flex;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1; }
     .ui-menu nav ul {
       display: -webkit-box;
       display: -ms-flexbox;
