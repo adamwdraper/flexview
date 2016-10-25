@@ -2,7 +2,28 @@
 $ui-overlays-border-width: 2px;
 
 // Mixins --------------------------------------
+@mixin ui-overlay-overlay-container($color, $content) {
+  position: relative;
+  overflow: hidden;
 
+  @include ui-overlay-overlay($color, $content);
+}
+
+@mixin ui-overlay-overlay($color, $content) {
+
+  &:before {
+    content: $content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(lighten($color, 35%), 0.9);
+  }
+}
 
 // Placeholders --------------------------------------
 
@@ -13,23 +34,31 @@ $ui-overlays-border-width: 2px;
   &.show-overlays {
 
     .view-main {
-      border: $ui-overlays-border-width dashed $color-blue;
-      background-color: lighten($color-blue, 42%);
+      @include ui-overlay-overlay-container($color-blue, "");
     }
 
     .view-aside {
-      border: $ui-overlays-border-width dashed $color-purple;
-      background-color: lighten($color-purple, 42%);
+      @include ui-overlay-overlay-container($color-purple, "");
     }
 
     .view-header {
-      border: $ui-overlays-border-width dashed $color-green;
-      background-color: lighten($color-green, 42%);
+      @include ui-overlay-overlay-container($color-green, ".view-header");
     }
 
     .view-content {
-      border: $ui-overlays-border-width dashed $color-orange;
-      background-color: lighten($color-orange, 42%);
+      @include ui-overlay-overlay-container($color-orange, ".view-content");
+    }
+
+    .view-footer {
+      @include ui-overlay-overlay-container($color-yellow, ".view-footer");
+    }
+
+    .view-status {
+      @include ui-overlay-overlay($color-pink, ".view-status");
+    }
+
+    .ui-table {
+      @include ui-overlay-overlay-container($color-red, ".ui-table");
     }
   }
 }
