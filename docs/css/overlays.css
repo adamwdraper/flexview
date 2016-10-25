@@ -78,20 +78,148 @@
   display: flex; }
 
 .ui-overlays.show-overlays .view-main {
-  border: 2px dashed #167FBC;
-  background-color: #b2ddf6; }
+  position: relative;
+  overflow: hidden; }
+  .ui-overlays.show-overlays .view-main:before {
+    content: "";
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(146, 207, 242, 0.9); }
 
 .ui-overlays.show-overlays .view-aside {
-  border: 2px dashed #744FC6;
-  background-color: #f4f1fa; }
+  position: relative;
+  overflow: hidden; }
+  .ui-overlays.show-overlays .view-aside:before {
+    content: "";
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(222, 214, 242, 0.9); }
 
 .ui-overlays.show-overlays .view-header {
-  border: 2px dashed #50C574;
-  background-color: #f1faf4; }
+  position: relative;
+  overflow: hidden; }
+  .ui-overlays.show-overlays .view-header:before {
+    content: ".view-header";
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(214, 241, 222, 0.9); }
 
 .ui-overlays.show-overlays .view-content {
-  border: 2px dashed #E8AA14;
-  background-color: #fcf1d7; }
+  position: relative;
+  overflow: hidden; }
+  .ui-overlays.show-overlays .view-content:before {
+    content: ".view-content";
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(249, 229, 182, 0.9); }
+
+.ui-overlays.show-overlays .view-footer {
+  position: relative;
+  overflow: hidden; }
+  .ui-overlays.show-overlays .view-footer:before {
+    content: ".view-footer";
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(252, 249, 196, 0.9); }
+
+.ui-overlays.show-overlays .view-status:before {
+  content: ".view-status";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 225, 234, 0.9); }
+
+.ui-overlays.show-overlays .ui-table {
+  position: relative;
+  overflow: hidden; }
+  .ui-overlays.show-overlays .ui-table:before {
+    content: ".ui-table";
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(244, 196, 188, 0.9); }
 
 .ui-toggle {
   display: -webkit-box;
