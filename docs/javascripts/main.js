@@ -35,7 +35,7 @@ $(function() {
     navigate: function(route) {
       const view = this.routes[route] || this.routes['1'];
 
-      history.pushState({
+      history.replaceState({
         view: view.view
       }, `View ${view.view}`, `${view.view}`);
 
