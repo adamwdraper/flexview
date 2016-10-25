@@ -77,6 +77,22 @@
   display: -ms-flexbox;
   display: flex; }
 
+.ui-overlays.show-overlays .view-main {
+  border: 2px dashed #167FBC;
+  background-color: #b2ddf6; }
+
+.ui-overlays.show-overlays .view-aside {
+  border: 2px dashed #744FC6;
+  background-color: #f4f1fa; }
+
+.ui-overlays.show-overlays .view-header {
+  border: 2px dashed #50C574;
+  background-color: #f1faf4; }
+
+.ui-overlays.show-overlays .view-content {
+  border: 2px dashed #E8AA14;
+  background-color: #fcf1d7; }
+
 .ui-toggle {
   display: -webkit-box;
   display: -ms-flexbox;
