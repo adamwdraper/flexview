@@ -12,6 +12,7 @@ $.fn.extend({
 
 
 $(function() {
+  const $body = $('body');
   const router = {
     routes: {
       '1': {
@@ -49,9 +50,22 @@ $(function() {
     }
   };
 
+  // navigation
   $('[data-route]').on('click', function(event) {
     router.navigate($(event.currentTarget).data('route'));
   });
 
+  // load initial route
   router.navigate(window.location.pathname.substr(1));
+
+  // toggle overlays class on body
+  $('#toggle-overlays').on('change', function() {
+    const className = 'show-overlays';
+
+    if ($(this).is(':checked')) {
+      $body.addClass(className);
+    } else {
+      $body.removeClass(className);
+    }
+  });
 });

@@ -1,12 +1,16 @@
 const fs = require('fs');
 const packageJSON  = require('./package');
 const gulp = require('gulp');
+const gulpif = require('gulp-if');
 const sass = require('gulp-sass');
 const sourceMaps = require('gulp-sourcemaps');
 const autoPrefixer = require('gulp-autoprefixer');
 const del = require('del');
 const nodemon = require('gulp-nodemon');
 
+const isFlexview = function(file) {
+  return file.path.includes('flexview.css');
+};
 
 // Empty dist directory
 gulp.task('clean', function() {
@@ -17,19 +21,19 @@ gulp.task('clean', function() {
 
 // Compile sass
 gulp.task('sass', function() {
-  return gulp.src('./docs/css/sass/stylesheets/*.scss')
+  return gulp.src('./css/sass/stylesheets/*.scss')
     .pipe(sass()
       .on('error', sass.logError))
     .pipe(autoPrefixer())
-    .pipe(gulp.dest('./docs/css'))
-    .pipe(gulp.dest('./'));
+    .pipe(gulpif(isFlexview, gulp.dest('../')))
+    .pipe(gulp.dest('./css'));
 });
 
 // Watch for compiling sass
 gulp.task('sass:watch', [
   'sass'
   ], function() {
-    gulp.watch('./docs/css/sass/**/*.scss', [
+    gulp.watch('./css/sass/**/*.scss', [
       'sass'
     ]);
 });

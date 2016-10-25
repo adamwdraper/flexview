@@ -1,0 +1,35 @@
+// Variables -------------------------------------
+$ui-overlays-border-width: 2px;
+
+// Mixins --------------------------------------
+
+
+// Placeholders --------------------------------------
+
+
+// Styles --------------------------------------
+.ui-overlays {
+
+  &.show-overlays {
+
+    .view-main {
+      border: $ui-overlays-border-width dashed $color-blue;
+      background-color: lighten($color-blue, 42%);
+    }
+
+    .view-aside {
+      border: $ui-overlays-border-width dashed $color-purple;
+      background-color: lighten($color-purple, 42%);
+    }
+
+    .view-header {
+      border: $ui-overlays-border-width dashed $color-green;
+      background-color: lighten($color-green, 42%);
+    }
+
+    .view-content {
+      border: $ui-overlays-border-width dashed $color-orange;
+      background-color: lighten($color-orange, 42%);
+    }
+  }
+}
