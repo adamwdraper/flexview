@@ -2,13 +2,27 @@
 
 An HTML/CSS layout strategy for single page apps using Flexbox.
 
-After building several large single page apps, I wanted to share the layout concepts that have worked very well for me.
+After building several large single page apps, I wanted to share the layout concepts that have worked very well for me. It's fairly simple but versatile enough to cover many different layout possibilities.
 
-As this uses Flexbox the browser support can be found at [caniuse.com](http://caniuse.com/#search=flex).
+Check out the [example demo](https://adamwdraper.github.io/flexview/1).
 
-View `docs/index.html` for a full example of the HTML.  The styles are written in SCSS in `docs/css/sass/uis`.  If you just want the CSS `flexview.css` is what you're looking for.
+View `docs/index.html` for a full example of the HTML. The styles are written in SCSS in `docs/css/sass/uis`. If you just want the CSS `flexview.css` is what you're looking for.
 
 ## Layout Overview
+
+The basic components of the layout:
+
+```
+.ui-app
+  .ui-menu
+  .ui-views
+    .view
+      .view-status
+      .view-main / .view-aside
+        .view-header / .view-content / .view-footer
+```
+
+## HTML
 
 ```
 <body>
@@ -26,40 +40,20 @@ View `docs/index.html` for a full example of the HTML.  The styles are written i
 
 ### .ui-app
 
-The main container of the layout. It's styles include:
-
-```
-display: flex;
-flex-direction: column;
-height: 100vh;
-width: 100%;
-```
+The main container of the layout.
 
 ### .ui-menu
-This is a horizontal menu bar at the top of the layout. It's styles include:
+This is a horizontal menu bar at the top of the layout.
 
-```
-flex: 0 0;
-```
 ### .ui-views
 
-This contains the "pages" of the app. It fills the rest of the page so there is no vertical scrolling. It's styles include:
+This contains the "pages" (`.view`'s) of the app. It fills the rest of the page so there is no vertical scrolling.
 
-```
-flex: 1;
-```
 
 ### .view
-A `.view` goes inside `.ui-views`.  It is hidden by default and fades in when it has a class of `active`. It's styles include:
+This is the meat of the layout. A `.view` goes inside `.ui-views`, and each one represents a "page" of the app. It is hidden by default and fades in when it has a class of `active`.
 
-```
-display: flex;
-flex-direction: row;
-transition: opacity 0.3s;
-opacity: 0;
-```
-
-It has two types of children for content and can contain any number of them that it will display side by side:
+A `.view` has two types of children. All children added to the view will display side by side:
 
 ```
 <div class="view">
@@ -72,14 +66,7 @@ It has two types of children for content and can contain any number of them that
 </div>
 ```
 
-`.view-main` and `.view-aside` share the same base flex styles (the only difference is there flex value):
-
-```
-display: flex;
-flex-direction: column;
-```
-
-`.view-main` and `.view-aside` have several types of children:
+`.view-main` and `.view-aside` have three types of children:
 
 ```
 <div class="view-main">
@@ -97,21 +84,11 @@ flex-direction: column;
 
 `.view-header` and `.view-footer` share the same flex styles and sit at the top and bottom respectively:
 
-```
-display: flex;
-flex-shrink: 0;
-align-items: center;
-```
 
 `.view-content` expands to the size of the view and scrolls, so this is where the main information goes:
 
-```
-flex: 1;
-overflow: auto;
-```
 
-A `.view` also has a special type of child for loaders and other information.  `.view-status` is hidden by default, but covers the entire view when the `.view` has a class of `.has-status`
-
+A `.view` also has a special type of child for loaders and other messges.  `.view-status` is hidden by default, but covers the entire view when the `.view` has a class of `.has-status`
 
 ```
 <div class="view">
@@ -123,3 +100,7 @@ A `.view` also has a special type of child for loaders and other information.  `
   </div>
 </div>
 ```
+
+## Browser Support
+
+As this uses Flexbox the browser support can be found at [caniuse.com](http://caniuse.com/#search=flex).
