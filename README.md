@@ -4,7 +4,7 @@ An HTML/CSS layout strategy for single page apps using Flexbox.
 
 After building several large single page apps, I wanted to share the layout concepts that have worked very well for me. It's fairly simple but versatile enough to cover many different layout possibilities.
 
-Check out the [example demo](https://adamwdraper.github.io/flexview/1).
+Check out the [example demo](https://adamwdraper.github.io/flexview/).
 
 View `docs/index.html` for a full example of the HTML. The styles are written in SCSS in `docs/css/sass/uis`. If you just want the CSS `flexview.css` is what you're looking for.
 
